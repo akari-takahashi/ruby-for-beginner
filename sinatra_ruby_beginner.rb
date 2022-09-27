@@ -17,28 +17,38 @@
 require 'sinatra'
 
 get '/' do
-    "Hello World!"
+    @title = 'Hello, Sinatra!'
+    @message = "Hello World!"
+    erb :message
 end
 
 get '/hello/:name' do
-    "Hello #{params[:name]}!"
+    @title = 'Hello, Sinatra!'
+    @message = "Hello #{params[:name]}!"
+    erb :message
 end
 
 get '/hello/:name/:city' do
-    "Hello #{params[:name]} from #{params[:city]}!"
+    @title = 'Hello, Sinatra!'
+    @message = "Hello #{params[:name]} from #{params[:city]}!"
+    erb :message
 end
 
 get '/more/*' do
-    params[:splat]
+    @title = 'Hello, Sinatra!'
+    @message = "Hello #{params[:splat]}!"
+    erb :message
 end
 
 get '/form' do
-    # form.erbを表示する
+    @title = "Form"
     erb :form
 end
 
 post '/form' do
-    "You said '#{params[:message]}'"
+    @title = "Form"
+    @message = "You said '#{params[:message]}'"
+    erb :message
 end
 
 __END__
