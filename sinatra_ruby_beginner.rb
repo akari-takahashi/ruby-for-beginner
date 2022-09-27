@@ -33,6 +33,7 @@ get '/more/*' do
 end
 
 get '/form' do
+    # form.erbを表示する
     erb :form
 end
 
@@ -41,14 +42,3 @@ post '/form' do
 end
 
 __END__
-
-@@ form
-<html>
-    <body>
-        <form action="/form" method="post">
-            <input type="text" name="message">
-            <input type="submit" value="Say it!">
-        </form>
-    </body>
-</html>
-
